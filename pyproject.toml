@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pilothouse"
+authors = ["John Smith <john@example.com>"]
+description=""
+version = "0.1.0"
+readme = "README.md"
+
+[tool.poetry.scripts]
+pilothouse = 'pilothouse.cli:cli'
+ph = 'pilothouse.cli:cli'
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
