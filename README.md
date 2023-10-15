@@ -4,8 +4,8 @@ A pilothouse to command the fleet of ships in your harbor.
 
 ## Prerequisites
 
-Pilothouse is tailored to me and not yet configurable at all. This means to
-make it run following requirements have to be met:
+At the moment, Pilothouse is tailored to me and not yet configurable.
+This means to make it run following requirements have to be met:
 
 - Urbit binary in path.
 - Harbor at `$HOME/projects/urbit/harbor`.
@@ -44,7 +44,7 @@ pilothouse init zod my-desk/
 pilothouse sync
 ```
 
-Or simply:
+Or simply (equivalent to above workflow):
 ```
 pilothouse chain zod my-desk
 ```
