@@ -7,6 +7,7 @@ from time import sleep
 from pathlib import Path
 
 harbor = Path.home() / "projects" / "urbit" / "harbor"
+argo = harbor / "argo"  # language server
 
 
 def new(pier):
@@ -29,6 +30,13 @@ def run(pier):
 
 def init(pier, desk):
     """Merge, mount, sync, commit and install desk."""
+    dojo(pier, "merge argo our %base")
+    dojo(pier, "mount argo")
+    rsync(pier, argo, False)
+    dojo(pier, "commit argo")
+    dojo(pier, "install our argo")
+    print("hello")
+
     dojo(pier, "merge %{} our %base".format(desk.name))
     dojo(pier, "mount %{}".format(desk.name))
     rsync(pier, desk, False)
