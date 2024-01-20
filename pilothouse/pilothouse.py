@@ -30,11 +30,11 @@ def run(pier):
 
 def init(pier, desk):
     """Merge, mount, sync, commit and install desk."""
-    dojo(pier, "merge argo our %base")
-    dojo(pier, "mount argo")
+    dojo(pier, "merge %argo our %base")
+    dojo(pier, "mount %argo")
     rsync(pier, argo, False)
-    dojo(pier, "commit argo")
-    dojo(pier, "install our argo")
+    dojo(pier, "commit %argo")
+    dojo(pier, "install our %argo")
     print("hello")
 
     dojo(pier, "merge %{} our %base".format(desk.name))
