@@ -25,17 +25,18 @@ def run(pier):
     pier = harbor / pier
     if not pier.exists():
         click.echo("Pier does not exists")
+        return
     subprocess.Popen(["alacritty", "--command", "urbit", pier])
 
 
-def init(pier, desk):
+def init(pier, desk, argo):
     """Merge, mount, sync, commit and install desk."""
-    dojo(pier, "merge %argo our %base")
-    dojo(pier, "mount %argo")
-    rsync(pier, argo, False)
-    dojo(pier, "commit %argo")
-    dojo(pier, "install our %argo")
-    print("hello")
+    if argo:
+        dojo(pier, "merge %argo our %base")
+        dojo(pier, "mount %argo")
+        rsync(pier, argo, False)
+        dojo(pier, "commit %argo")
+        dojo(pier, "install our %argo")
 
     dojo(pier, "merge %{} our %base".format(desk.name))
     dojo(pier, "mount %{}".format(desk.name))
@@ -71,8 +72,8 @@ def dojo(pier, cmd):
     requests.post(url, json=data)
 
 
-def chain(pier, desk):
+def chain(pier, desk, argo):
     new(pier)
     sleep(1)
-    init(pier, desk)
+    init(pier, desk, argo)
     rsync(pier, desk, True)

@@ -49,9 +49,10 @@ def sync(pier, desk):
         path_type=Path,
     ),
 )
-def init(pier, desk):
+@click.option('--argo', is_flag=True, help="Install %argo")
+def init(pier, desk, argo):
     """Merge, mount, sync, commit and install desk."""
-    ph.init(pier, desk)
+    ph.init(pier, desk, argo)
 
 
 @cli.command("chain")
@@ -65,6 +66,7 @@ def init(pier, desk):
         path_type=Path,
     ),
 )
-def chain(pier, desk):
+@click.option('--argo', is_flag=True, help="Install %argo")
+def chain(pier, desk, argo):
     """Chain of command: New, init and sync."""
-    ph.chain(pier, desk)
+    ph.chain(pier, desk, argo)
