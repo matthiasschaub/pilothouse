@@ -18,7 +18,7 @@ reach out to me on the network (`~talfus-ladds`).
 ## Installation
 
 ```bash
-pipx install https://git.sr.ht/~talfus-laddus/pilothouse
+pipx install git+https://github.com/matthiasschaub/pilothouse
 ```
 
 ## Usage
