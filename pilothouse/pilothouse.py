@@ -43,6 +43,7 @@ def init(pier, desk, argo):
     rsync(pier, desk, False)
     dojo(pier, "commit %{}".format(desk.name))
     dojo(pier, "install our %{}".format(desk.name))
+    dojo(pier, "start %dbug")
 
 
 def rsync(pier, desk, watch):
