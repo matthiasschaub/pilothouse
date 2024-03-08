@@ -29,6 +29,14 @@ def run(pier):
     subprocess.Popen(["alacritty", "--command", "urbit", pier])
 
 
+def commit(pier, desk):
+    dojo(pier, "commit %{}".format(desk.name))
+
+
+def autocommit(pier, desk):
+    dojo(pier, "commit %{}".format(desk.name))
+
+
 def init(pier, desk, argo):
     """Merge, mount, sync, commit and install desk."""
     if argo:

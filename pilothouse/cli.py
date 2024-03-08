@@ -49,10 +49,42 @@ def sync(pier, desk):
         path_type=Path,
     ),
 )
-@click.option('--argo', is_flag=True, help="Install %argo")
+@click.option("--argo", is_flag=True, help="Install %argo")
 def init(pier, desk, argo):
     """Merge, mount, sync, commit and install desk."""
     ph.init(pier, desk, argo)
+
+
+@cli.command("commit")
+@click.argument("pier", type=str)
+@click.argument(
+    "desk",
+    type=click.Path(
+        exists=True,
+        dir_okay=True,
+        file_okay=False,
+        path_type=Path,
+    ),
+)
+def commit(pier, desk):
+    """Commit desk."""
+    ph.commit(pier, desk)
+
+
+@cli.command("autocommit")
+@click.argument("pier", type=str)
+@click.argument(
+    "desk",
+    type=click.Path(
+        exists=True,
+        dir_okay=True,
+        file_okay=False,
+        path_type=Path,
+    ),
+)
+def autocommit(pier, desk):
+    """Autocommit desk."""
+    ph.autocommit(pier, desk)
 
 
 @cli.command("chain")
@@ -66,7 +98,7 @@ def init(pier, desk, argo):
         path_type=Path,
     ),
 )
-@click.option('--argo', is_flag=True, help="Install %argo")
+@click.option("--argo", is_flag=True, help="Install %argo")
 def chain(pier, desk, argo):
     """Chain of command: New, init and sync."""
     ph.chain(pier, desk, argo)
