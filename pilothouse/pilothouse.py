@@ -26,7 +26,13 @@ def run(pier):
     if not pier.exists():
         click.echo("Pier does not exists")
         return
-    subprocess.Popen(["alacritty", "--command", "urbit", pier])
+    subprocess.Popen(
+        [
+            "alacritty",
+            "--command",
+            "{0}/.run".format(pier),
+        ]
+    )
 
 
 def commit(pier, desk):
